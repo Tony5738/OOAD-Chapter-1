@@ -11,7 +11,7 @@ public class Inventory {
 
   public void addGuitar(String serialNumber, double price,
                         Builder builder, String model,
-                        String type, Wood backWood, Wood topWood) {
+                        Type type, Wood backWood, Wood topWood) {
     Guitar guitar = new Guitar(serialNumber, price, builder,
                                model, type, backWood, topWood);
     guitars.add(guitar);
@@ -30,25 +30,17 @@ public class Inventory {
       Guitar guitar = (Guitar)i.next();
       // Ignore serial number since that's unique
       // Ignore price since that's unique
-      Builder builder = searchGuitar.getBuilder();
-      if ((builder != null) && (!builder.equals("")) &&
-          (!builder.equals(guitar.getBuilder())))
+      if (searchGuitar.getBuilder() != guitar.getBuilder())
         continue;
-      String model = searchGuitar.getModel();
+      String model = searchGuitar.getModel().toLowerCase();
       if ((model != null) && (!model.equals("")) &&
-          (!model.equals(guitar.getModel())))
+          (!model.equals(guitar.getModel().toLowerCase())))
         continue;
-      String type = searchGuitar.getType();
-      if ((type != null) && (!searchGuitar.equals("")) &&
-          (!type.equals(guitar.getType())))
+      if (searchGuitar.getType()!=guitar.getType())
         continue;
-      Wood backWood = searchGuitar.getBackWood();
-      if ((backWood != null) && (!backWood.equals("")) &&
-          (!backWood.equals(guitar.getBackWood())))
+      if (searchGuitar.getBackWood() != guitar.getBackWood())
         continue;
-      Wood topWood = searchGuitar.getTopWood();
-      if ((topWood != null) && (!topWood.equals("")) &&
-          (!topWood.equals(guitar.getTopWood())))
+      if (searchGuitar.getTopWood() != guitar.getTopWood())
         continue;
       return guitar;
     }

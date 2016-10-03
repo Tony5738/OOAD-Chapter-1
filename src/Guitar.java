@@ -3,13 +3,13 @@ public class Guitar {
     private String serialNumber;
     private Builder builder;
     private String model;
-    private String type;
+    private Type type;
     private Wood backWood;
     private Wood topWood;
     private double price;
 
     public Guitar(String serialNumber, double price,
-                  Builder builder, String model, String type,
+                  Builder builder, String model, Type type,
                   Wood backWood, Wood topWood) {
         this.serialNumber = serialNumber;
         this.price = price;
@@ -36,7 +36,7 @@ public class Guitar {
     public String getModel() {
         return model;
       }
-    public String getType() {
+    public Type getType() {
         return type;
       }
     public Wood getBackWood() {
